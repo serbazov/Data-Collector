@@ -53,7 +53,6 @@ async function run() {
   const sheet = doc.sheetsByIndex[0];
   while (true) {
     const price = await errCatcher(getToken2UsdcPrice, [wallet, web3Provider]);
-    console.log(price);
     await sheet.addRow([Date(Date.now), Date.now(), price]);
     await timer(1000 * 59);
   }
